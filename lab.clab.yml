@@ -1,0 +1,28 @@
+name: forti-lab
+
+topology:
+  nodes:
+    br-fgt:
+      kind: bridge
+
+    r1:
+      kind: cisco_iol
+      image: vrnetlab/cisco_iol:17.15.1
+
+    r2:
+      kind: cisco_iol
+      image: vrnetlab/cisco_iol:17.15.1
+
+    pc1:
+      kind: linux
+      image: ghcr.io/srl-labs/alpine
+
+    server:
+      kind: linux
+      image: ghcr.io/srl-labs/alpine
+
+  links:
+    - endpoints: ["br-fgt:fg", "r1:Ethernet0/1"]
+    - endpoints: ["r1:Ethernet0/2", "r2:Ethernet0/1"]
+    - endpoints: ["r2:Ethernet0/2", "pc1:eth1"]
+    - endpoints: ["r2:Ethernet0/3", "server:eth1"]

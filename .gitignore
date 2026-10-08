@@ -1,0 +1,34 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+
+# Ansible
+.ansible/
+*.retry
+.fact_cache/
+
+# Secrets
+.env
+.env.*
+!.env.example
+
+.vault_pass
+.vault-password
+
+# OS / Editor
+.DS_Store
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# Containerlab generated files
+clab-*/
